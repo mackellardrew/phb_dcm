@@ -86,6 +86,7 @@ task fetch_bs {
     fi
 
     #Download reads by dataset ID
+    echo "NOW EXECUTING DCM VARIANT OF THIS WORKFLOW" >&2
     for index in ${!dataset_id_array[@]}; do
       dataset_id=${dataset_id_array[$index]}
       mkdir ./dataset_${dataset_id} && cd ./dataset_${dataset_id}
