@@ -98,9 +98,9 @@ task fetch_bs {
     #Combine non-empty read files into single file without BaseSpace filename cruft
     ##FWD Read
     echo "Starting read filename consolidation; I am in the dir:"
-    echo pwd
+    echo "$(pwd)"
     echo "And I am seeing the contents:"
-    echo ls -ahl
+    echo "$(ls -ahl)"
     lane_count=0
     for fwd_read in ./dataset_*/${sample_identifier}_*R1_*.fastq.gz; do
       if [[ -s $fwd_read ]]; then
