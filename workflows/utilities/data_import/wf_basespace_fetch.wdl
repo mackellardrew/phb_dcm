@@ -101,12 +101,12 @@ task fetch_bs {
     echo "$(pwd)"
     echo "And I am seeing the contents:"
     echo "$(ls -ahl)"
-    echo "I am next going to look in the dir '../dataset_*/${sample_identifier}_*R1_*.fastq.gz"
+    echo "I am next going to look in the dir '../dataset_${dataset_id}."
     echo "I am seeing:"
-    echo "$(ls -ahl ./dataset_*/${sample_identifier}_*R1_*.fastq.gz)"
+    echo "$(ls -ahl ./dataset_${dataset_id})"
     lane_count=0
     # for fwd_read in ./dataset_*/${sample_identifier}_*R1_*.fastq.gz; do
-    for fwd_read in ./dataset_*/${dataset_id}_*R1_*.fastq.gz; do
+    for fwd_read in ./dataset_${dataset_id}/*_*R1_*.fastq.gz; do
       if [[ -s $fwd_read ]]; then
         echo "cat fwd reads: cat $fwd_read >> ~{sample_name}_R1.fastq.gz" 
         cat $fwd_read >> ~{sample_name}_R1.fastq.gz
@@ -114,7 +114,7 @@ task fetch_bs {
       fi
     done
     ##REV Read
-    for rev_read in ./dataset_*/${dataset_id}_*R2_*.fastq.gz; do
+    for rev_read in ./dataset_${dataset_id}/*_*R2_*.fastq.gz; do
       if [[ -s $rev_read ]]; then 
         echo "cat rev reads: cat $rev_read >> ~{sample_name}_R2.fastq.gz" 
         cat $rev_read >> ~{sample_name}_R2.fastq.gz
