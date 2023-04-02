@@ -101,6 +101,9 @@ task fetch_bs {
     echo "$(pwd)"
     echo "And I am seeing the contents:"
     echo "$(ls -ahl)"
+    echo "I am next going to look in the dir '../dataset_*/${sample_identifier}_*R1_*.fastq.gz"
+    echo "I am seeing:"
+    echo "$(ls -ahl ./dataset_*/${sample_identifier}_*R1_*.fastq.gz)"
     lane_count=0
     for fwd_read in ./dataset_*/${sample_identifier}_*R1_*.fastq.gz; do
       if [[ -s $fwd_read ]]; then
